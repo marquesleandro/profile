@@ -220,10 +220,10 @@ elementos1[0] = 25600
 
 elementos1 = elementos1*0.001
 
-plt.loglog(elementos,error, '-s', color = 'black', label = 'solucao numerica')
-plt.loglog(elementos,elementos1, ':', color = 'black', label = 'primeira ordem')
-plt.loglog(elementos,elementos1**2, '-.', color = 'black', label = 'segunda ordem')
+plt.loglog(elementos,error, '-s', color = 'black', label = 'numerical solution')
+plt.loglog(elementos,elementos1, ':', color = 'black', label = 'first order')
+plt.loglog(elementos,elementos1**2, '-.', color = 'black', label = 'second order')
 plt.legend(loc = 1)
-plt.ylabel('erro relativo')
-plt.xlabel('numero de elementos')
+plt.ylabel('relative error')
+plt.xlabel('elements numbers\n\n(b)')
 plt.show()

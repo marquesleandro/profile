@@ -3,36 +3,12 @@
 # =======================
 
 import sys
-sys.path.insert(0, '../../lib_class')
 
 import numpy as np
-import scipy.sparse as sps
-import scipy.sparse.linalg
-import scipy.linalg
-import trimsh
-import trielem
-from tricond import b_bc
-import InOut
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
 
-
-print '------------'
-print 'IMPORT MESH:'
-print '------------'
-
-start_time = time()
-
-name_mesh = 'malha_cavity.msh'
-mesh = trimsh.Linear('../../mesh',name_mesh)
-mesh.parameters(3)
-mesh.ien()
-mesh.coord()
-
-end_time = time()
-print 'time duration: %.1f seconds' %(end_time - start_time)
-print ""
 
 
 print '------------'
@@ -151,5 +127,5 @@ plt.plot(x_a, v_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(x_b, v_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 3)
 plt.ylabel('v-velocity')
-plt.xlabel('x')
+plt.xlabel('x\n\n(b)')
 plt.show()
