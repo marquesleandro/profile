@@ -2,17 +2,8 @@
 # Importing the libraries
 # =======================
 
-import sys
-sys.path.insert(0, '/home/marquesgesar/fem/lib_class')
 
 import numpy as np
-import scipy.sparse as sps
-import scipy.sparse.linalg
-import scipy.linalg
-import trimsh
-import trielem
-from tricond import b_bc
-import InOut
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
@@ -28,7 +19,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('half_poiseuille_20.csv') as cav:
+with open('half_poiseuille_20b.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -44,7 +35,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('half_poiseuille_40.csv') as cav:
+with open('half_poiseuille_40b.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -61,7 +52,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('half_poiseuille_200.csv') as cav:
+with open('half_poiseuille_200b.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -77,7 +68,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-with open('half_poiseuille_1500.csv') as cav:
+with open('half_poiseuille_1500b.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])

@@ -2,9 +2,6 @@
 # Importing the libraries
 # =======================
 
-import sys
-sys.path.insert(0, '/home/marquesgesar/fem/lib_class')
-
 import numpy as np
 from tqdm import tqdm
 from time import time
@@ -21,7 +18,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('poiseulle_20f.csv') as cav:
+with open('poiseulle_20h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -37,7 +34,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseulle_40f.csv') as cav:
+with open('poiseulle_40h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -54,7 +51,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseulle_200f.csv') as cav:
+with open('poiseulle_200h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -70,7 +67,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-with open('poiseulle_1500f.csv') as cav:
+with open('poiseulle_1500h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])

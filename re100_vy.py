@@ -2,7 +2,6 @@
 # Importing the libraries
 # =======================
 
-import sys
 
 import numpy as np
 from tqdm import tqdm

@@ -8,16 +8,6 @@ from time import time
 import matplotlib.pyplot as plt
 
 
-print '------------'
-print 'IMPORT MESH:'
-print '------------'
-
-start_time = time()
-
-end_time = time()
-print 'time duration: %.1f seconds' %(end_time - start_time)
-print ""
-
 
 print '------------'
 print 'COMPARATION:'

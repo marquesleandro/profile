@@ -2,17 +2,8 @@
 # Importing the libraries
 # =======================
 
-import sys
-sys.path.insert(0, '/home/marquesgesar/fem/lib_class')
 
 import numpy as np
-import scipy.sparse as sps
-import scipy.sparse.linalg
-import scipy.linalg
-import trimsh
-import trielem
-from tricond import b_bc
-import InOut
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
