@@ -105,7 +105,7 @@ v_b[0] = 0.00000
 
 
 cav_num = []
-with open('re400_vy.csv') as cav:
+with open('re400b_vy.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
