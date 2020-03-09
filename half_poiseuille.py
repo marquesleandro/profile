@@ -68,7 +68,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-with open('half_poiseuille_1500b.csv') as cav:
+with open('dados_alehalf.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -92,7 +92,14 @@ for i in range(0,200):
  ye[i] = (i/200.0)
  vxe[i] = u_max*(1.0 - (ye[i]/L)**2)
 
+erro = []
+for i in range(0,len(y4)-1):
+ err = np.sqrt((vxe[2*i] - vx4[i])**2)
+ erro.append(err)
 
+avg_erro = sum(erro)/len(erro)
+
+print avg_erro
 
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
@@ -101,8 +108,8 @@ print ""
 
 plt.xticks(np.arange(0.0, 1.7, 0.1))
 plt.yticks(np.arange(0.0, 1.1, 0.1))
-plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
-plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
+#plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
+#plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
 plt.plot(vx4, y4, '-', color='black', label = "solucao numerica")
 plt.plot(vxe, ye, '--', color='black', label = "solucao analitica")
 plt.legend(loc = 3)
