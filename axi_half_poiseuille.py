@@ -86,7 +86,7 @@ for i in range(1,len(cav_num)):
 vxe = np.zeros([200,1], dtype = float)
 ye = np.zeros([200,1], dtype = float)
 
-u_max = 1.5
+u_max = 2.0
 L = 1.0
 for i in range(0,200):
  ye[i] = (i/200.0)
