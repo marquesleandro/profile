@@ -68,7 +68,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-with open('dados_alehalf.csv') as cav:
+with open('axi_half_poiseuille.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -109,7 +109,7 @@ print ""
 plt.xticks(np.arange(0.0, 1.7, 0.1))
 plt.yticks(np.arange(0.0, 1.1, 0.1))
 #plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
-plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
+#plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
 plt.plot(vx4, y4, '-', color='black', label = "solucao numerica")
 plt.plot(vxe, ye, '--', color='black', label = "solucao analitica")
 plt.legend(loc = 3)
