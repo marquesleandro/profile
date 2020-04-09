@@ -2,7 +2,6 @@
 # Importing the libraries
 # =======================
 
-
 import numpy as np
 from tqdm import tqdm
 from time import time
@@ -19,7 +18,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('half_poiseuille_20b.csv') as cav:
+with open('poiseulle_20h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -35,7 +34,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('half_poiseuille_40b.csv') as cav:
+with open('poiseulle_40h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -52,7 +51,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('dados_alehalfquad.csv') as cav:
+with open('poiseulle_200h.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -68,8 +67,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-#with open('half_poiseuille.csv') as cav:
-with open('half_poiseuille_mini.csv') as cav:
+with open('poiseuille_quad.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -91,33 +89,21 @@ u_max = 1.5
 L = 1.0
 for i in range(0,200):
  ye[i] = (i/200.0)
- vxe[i] = u_max*(1.0 - (ye[i]/L)**2)
+ vxe[i] = ((4.0*u_max*ye[i])/L**2)*(L - ye[i])
 
-print len(y4)
-print len(ye)
-print len(y4)/len(ye)
 
-erro = []
-for i in range(0,len(y4)-1):
- err = np.sqrt((vxe[i/5] - vx4[i])**2)
- erro.append(err)
-
-avg_erro = sum(erro)/len(erro)
-
-print avg_erro
 
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
-
 plt.xticks(np.arange(0.0, 1.7, 0.1))
 plt.yticks(np.arange(0.0, 1.1, 0.1))
 #plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
 #plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
-plt.plot(vx4, y4, '-', color='black', label = "solucao numerica")
-plt.plot(vxe, ye, '--', color='black', label = "solucao analitica")
+plt.plot(vx4, y4, '-', color='black', label = "numerical solution")
+plt.plot(vxe, ye, '--', color='black', label = "analytical solution")
 plt.legend(loc = 3)
 plt.ylabel('y')
-plt.xlabel('velocidade-u')
+plt.xlabel('velocity-u\n\n(a)')
 plt.show()
