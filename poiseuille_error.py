@@ -20,7 +20,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('poiseuille_erro2.csv') as cav:
+with open('alepoiseuille_erro_mesh1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -36,7 +36,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseuille_erro3.csv') as cav:
+with open('alepoiseuille_erro_mesh2.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -53,7 +53,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseuille_erro4.csv') as cav:
+with open('alepoiseuille_erro_mesh3.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -69,7 +69,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseuille_erro5.csv') as cav:
+with open('alepoiseuille_erro_mesh4.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -120,11 +120,16 @@ malha = len(vx4)
 vel = vx4
 y = y4
 
+malha = len(vx4)
 err1 = np.zeros([malha,1], dtype = float)
 err2 = np.zeros([malha,1], dtype = float)
 vx_a = np.zeros([malha,1], dtype = float)
 
 # erro malha 2
+malha = len(vx2)
+err1 = np.zeros([malha,1], dtype = float)
+err2 = np.zeros([malha,1], dtype = float)
+vx_a = np.zeros([malha,1], dtype = float)
 for i in range(0,len(vx2)):
  if not vx2[i] == 0:
   h = y2[i]
@@ -137,6 +142,10 @@ den = np.sum(err2)
 error2 = np.sqrt(num/den)
 
 # erro malha 3
+malha = len(vx3)
+err1 = np.zeros([malha,1], dtype = float)
+err2 = np.zeros([malha,1], dtype = float)
+vx_a = np.zeros([malha,1], dtype = float)
 for i in range(0,len(vx3)):
  if not vx3[i] == 0:
   h = y3[i]
@@ -149,6 +158,10 @@ den = np.sum(err2)
 error3 = np.sqrt(num/den)
 
 # erro malha 4
+malha = len(vx4)
+err1 = np.zeros([malha,1], dtype = float)
+err2 = np.zeros([malha,1], dtype = float)
+vx_a = np.zeros([malha,1], dtype = float)
 for i in range(0,len(vx4)):
  if not vx4[i] == 0:
   h = y4[i]
@@ -161,6 +174,10 @@ den = np.sum(err2)
 error4 = np.sqrt(num/den)
 
 # erro malha 5
+malha = len(vx5)
+err1 = np.zeros([malha,1], dtype = float)
+err2 = np.zeros([malha,1], dtype = float)
+vx_a = np.zeros([malha,1], dtype = float)
 for i in range(0,len(vx5)):
  if not vx5[i] == 0:
   h = y5[i]
@@ -174,6 +191,10 @@ error5 = np.sqrt(num/den)
 
 
 # erro malha 6
+malha = len(vx6)
+err1 = np.zeros([malha,1], dtype = float)
+err2 = np.zeros([malha,1], dtype = float)
+vx_a = np.zeros([malha,1], dtype = float)
 for i in range(0,len(vx6)):
  if not vx6[i] == 0:
   h = y6[i]
@@ -191,11 +212,11 @@ error6 = np.sqrt(num/den)
 elementos = np.zeros([5,1], dtype = int)
 error = np.zeros([5,1], dtype = float)
 
-elementos[0] = 100
-elementos[1] = 400
-elementos[2] = 1600
-elementos[3] = 6400
-elementos[4] = 25600
+elementos[0] = 194
+elementos[1] = 776
+elementos[2] = 3104
+elementos[3] = 12416
+elementos[4] = 49664
 
 error[0] = error2
 error[1] = error3
@@ -212,11 +233,11 @@ print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
 elementos1 = np.zeros([5,1], dtype = int)
-elementos1[4] = 100
-elementos1[3] = 400
-elementos1[2] = 1600
-elementos1[1] = 6400
-elementos1[0] = 25600
+elementos1[4] = 194
+elementos1[3] = 776
+elementos1[2] = 3104
+elementos1[1] = 12416
+elementos1[0] = 49664
 
 elementos1 = elementos1*0.001
 

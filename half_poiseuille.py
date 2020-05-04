@@ -69,7 +69,7 @@ for i in range(1,len(cav_num)):
 
 cav_num = []
 #with open('half_poiseuille.csv') as cav:
-with open('half_poiseuille_mini.csv') as cav:
+with open('half_poiseuille1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -96,15 +96,18 @@ for i in range(0,200):
 print len(y4)
 print len(ye)
 print len(y4)/len(ye)
+factor = len(y4)/len(ye)
 
+'''
 erro = []
 for i in range(0,len(y4)-1):
- err = np.sqrt((vxe[i/5] - vx4[i])**2)
+ err = np.sqrt((vxe[i/factor] - vx4[i])**2)
  erro.append(err)
 
 avg_erro = sum(erro)/len(erro)
 
 print avg_erro
+'''
 
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)

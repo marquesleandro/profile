@@ -67,7 +67,7 @@ for i in range(1,len(cav_num)):
 # ------------
 
 cav_num = []
-with open('poiseuille_quad.csv') as cav:
+with open('alepoiseuille_erro_mesh1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
