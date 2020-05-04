@@ -87,7 +87,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('poiseuille_erro6.csv') as cav:
+with open('alepoiseuille_erro_mesh5.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -212,11 +212,11 @@ error6 = np.sqrt(num/den)
 elementos = np.zeros([5,1], dtype = int)
 error = np.zeros([5,1], dtype = float)
 
-elementos[0] = 194
-elementos[1] = 776
-elementos[2] = 3104
-elementos[3] = 12416
-elementos[4] = 49664
+elementos[0] = 60
+elementos[1] = 240
+elementos[2] = 960
+elementos[3] = 3840
+elementos[4] = 15360
 
 error[0] = error2
 error[1] = error3
@@ -233,13 +233,13 @@ print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
 elementos1 = np.zeros([5,1], dtype = int)
-elementos1[4] = 194
-elementos1[3] = 776
-elementos1[2] = 3104
-elementos1[1] = 12416
-elementos1[0] = 49664
+elementos1[4] = 60
+elementos1[3] = 240
+elementos1[2] = 960
+elementos1[1] = 3840
+elementos1[0] = 15360
 
-elementos1 = elementos1*0.001
+elementos1 = elementos1*0.003
 
 plt.loglog(elementos,error, '-s', color = 'black', label = 'numerical solution')
 plt.loglog(elementos,elementos1, ':', color = 'black', label = 'first order')
