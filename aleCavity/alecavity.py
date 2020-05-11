@@ -103,25 +103,66 @@ u_b[2] = -0.07712
 u_b[1] = -0.04197 
 u_b[0] = 0.00000
 
-
+# ---------------------------------------------------
 cav_num = []
 with open('SL.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
 
-y = np.zeros([len(cav_num)-1,1], dtype = float)
-vx = np.zeros([len(cav_num)-1,1], dtype = float)
+y1 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx1 = np.zeros([len(cav_num)-1,1], dtype = float)
 for i in range(1,len(cav_num)):
- vx[i-1] = cav_num[i][1]
- y[i-1] = cav_num[i][7]
+ vx1[i-1] = cav_num[i][1]
+ y1[i-1] = cav_num[i][7]
+# ---------------------------------------------------
+cav_num = []
+with open('aleSL.csv') as cav:
+ for line in cav:
+  row = line.split(',')
+  cav_num.append(row[:])
+
+y2 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx2 = np.zeros([len(cav_num)-1,1], dtype = float)
+for i in range(1,len(cav_num)):
+ vx2[i-1] = cav_num[i][1]
+ y2[i-1] = cav_num[i][7]
+# ---------------------------------------------------
+cav_num = []
+with open('TG.csv') as cav:
+ for line in cav:
+  row = line.split(',')
+  cav_num.append(row[:])
+
+y3 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx3 = np.zeros([len(cav_num)-1,1], dtype = float)
+for i in range(1,len(cav_num)):
+ vx3[i-1] = cav_num[i][1]
+ y3[i-1] = cav_num[i][7]
+# ---------------------------------------------------
+cav_num = []
+with open('aleTG.csv') as cav:
+ for line in cav:
+  row = line.split(',')
+  cav_num.append(row[:])
+
+y4 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx4 = np.zeros([len(cav_num)-1,1], dtype = float)
+for i in range(1,len(cav_num)):
+ vx4[i-1] = cav_num[i][1]
+ y4[i-1] = cav_num[i][7]
+# ---------------------------------------------------
+
 
 
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
-plt.plot(vx, y, '-', color='black', label = "current work")
+plt.plot(vx1, y1, '-', color='black', label = "SL without ALE")
+#plt.plot(vx2, y2, '-', color='black', label = "SL with ALE")
+plt.plot(vx3, y3, '-', color='red', label = "TG without ALE")
+#plt.plot(vx4, y4, '-', color='red', label = "TG with ALE")
 plt.plot(u_a, y_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(u_b, y_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 4)
