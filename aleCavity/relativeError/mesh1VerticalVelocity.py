@@ -163,6 +163,25 @@ for i in range(1,len(cav_num)):
  x[i-1] = cav_num[i][8]
 # ---------------------------------------------------
 
+
+#Error mesh1
+numError = np.zeros([len(x_a),1], dtype = float)
+demError = np.zeros([len(x_a),1], dtype = float)
+for i in range(0,len(x_a)-1):
+ if not v_a[i] == 0:
+  numError[i] = (v_c[i] - v_a[i])**2
+  demError[i] = (v_a[i])**2
+
+num = np.sum(numError)
+dem = np.sum(demError)
+avgError = np.sqrt(num/dem)
+
+print avgError
+
+
+
+
+
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""

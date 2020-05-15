@@ -105,6 +105,9 @@ u_a[2] = -0.04192
 u_a[1] = -0.03717 
 u_a[0] = 0.00000
 
+
+
+
 # -------------
 # MARCHI et al.
 # -------------
@@ -161,6 +164,26 @@ for i in range(1,len(cav_num)):
  vx1[i-1] = cav_num[i][1]
  y1[i-1] = cav_num[i][7]
 # ---------------------------------------------------
+
+
+
+#Error mesh1
+numError = np.zeros([len(y_a),1], dtype = float)
+demError = np.zeros([len(y_a),1], dtype = float)
+for i in range(0,len(y_a)-1):
+ if not u_a[i] == 0:
+  numError[i] = (u_c[i] - u_a[i])**2
+  demError[i] = (u_a[i])**2
+
+num = np.sum(numError)
+dem = np.sum(demError)
+avgError = np.sqrt(num/dem)
+
+print avgError
+
+
+
+
 
 end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
