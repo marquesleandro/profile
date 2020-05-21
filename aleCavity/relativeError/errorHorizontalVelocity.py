@@ -8,11 +8,11 @@ import numpy as np
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
+import tikzplotlib
 
-
-print '------------'
-print 'COMPARATION:'
-print '------------'
+print( '------------' )
+print( 'COMPARATION:' )
+print( '------------' )
 
 
 # ------------
@@ -361,7 +361,8 @@ num = np.sum(numError)
 dem = np.sum(demError)
 avgError_mesh1 = np.sqrt(num/dem)*100.0
 
-print "Relative Error for mesh1 is: %.2f%%" %avgError_mesh1
+print( "Relative Error for mesh1 is:" ) 
+print (avgError_mesh1)
 # ---------------------------------------------------
 
 
@@ -378,7 +379,8 @@ num = np.sum(numError)
 dem = np.sum(demError)
 avgError_mesh2 = np.sqrt(num/dem)*100.0
 
-print "Relative Error for mesh2 is: %.2f%%" %avgError_mesh2
+print( "Relative Error for mesh2 is:" ) 
+print (avgError_mesh2)
 # ---------------------------------------------------
 
 
@@ -395,7 +397,8 @@ num = np.sum(numError)
 dem = np.sum(demError)
 avgError_mesh3 = np.sqrt(num/dem)*100.0
 
-print "Relative Error for mesh3 is: %.2f%%" %avgError_mesh3
+print( "Relative Error for mesh3 is:" ) 
+print (avgError_mesh3)
 # ---------------------------------------------------
 
 
@@ -412,7 +415,8 @@ num = np.sum(numError)
 dem = np.sum(demError)
 avgError_mesh4 = np.sqrt(num/dem)*100.0
 
-print "Relative Error for mesh4 is: %.2f%%" %avgError_mesh4
+print( "Relative Error for mesh4 is:" ) 
+print (avgError_mesh4)
 # ---------------------------------------------------
 
 
@@ -429,22 +433,18 @@ num = np.sum(numError)
 dem = np.sum(demError)
 avgError_mesh5 = np.sqrt(num/dem)*100.0
 
-print "Relative Error for mesh5 is: %.2f%%" %avgError_mesh5
+print( "Relative Error for mesh5 is:" ) 
+print( avgError_mesh5)
 # ---------------------------------------------------
 
 
 
-plt.clf()
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
-ax = plt.axes()
-ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
-ax.set_ylabel(r'y',fontsize=14)
-ax.set_aspect('equal')
 plt.plot(vx1, y1, '-', color='black', label = "Horizontal Velocity Profile")
 plt.plot(u_a, y_a, 'o', color='black', label = "Ghia et al. (1982)")
-#plt.plot(u_b, y_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.plot(u_c, y_c, 'x', color='black', label = "current work")
+plt.xlabel("Horizontal Velocity")
+plt.ylabel("Y")
 plt.legend(loc = 4)
+tikzplotlib.save("teste.tex")
 plt.show()
 
