@@ -8,7 +8,7 @@ import numpy as np
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
-import tikzplotlib
+#import tikzplotlib
 
 print( '------------' )
 print( 'COMPARATION:' )
@@ -273,7 +273,7 @@ elements1[0] = 15488
 elements1 = elements1*0.003
 
 
-plt.loglog(elements,errorVerticalVelocity, '-s', color = 'black', label = 'numerical solution')
+plt.loglog(elements,errorHorizontalVelocity, '-s', color = 'black', label = 'numerical solution')
 plt.loglog(elements,elements1, ':', color = 'black', label = 'first order')
 plt.loglog(elements,elements1**2, '-.', color = 'black', label = 'second order')
 plt.legend(loc = 1)
