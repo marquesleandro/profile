@@ -237,39 +237,49 @@ avgErrorVerticalMesh5 = np.sqrt(numVerticalMesh5/demVertical)
 
 
 
-# ---------------------------------------------------
-print( "Relative Error for Horizontal mesh1 is:" ) 
-print (avgErrorHorizontalMesh1)
-print("")
-print( "Relative Error for Horizontal mesh2 is:" ) 
-print (avgErrorHorizontalMesh2)
-print("")
-print( "Relative Error for Horizontal mesh3 is:" ) 
-print (avgErrorHorizontalMesh3)
-print("")
-print( "Relative Error for Horizontal mesh4 is:" ) 
-print (avgErrorHorizontalMesh4)
-print("")
-print( "Relative Error for Horizontal mesh5 is:" ) 
-print (avgErrorHorizontalMesh5)
-print("")
-print( "Relative Error for Vertical mesh1 is:" ) 
-print (avgErrorVerticalMesh1)
-print("")
-print( "Relative Error for Vertical mesh2 is:" ) 
-print (avgErrorVerticalMesh2)
-print("")
-print( "Relative Error for Vertical mesh3 is:" ) 
-print (avgErrorVerticalMesh3)
-print("")
-print( "Relative Error for Vertical mesh4 is:" ) 
-print (avgErrorVerticalMesh4)
-print("")
-print( "Relative Error for Vertical mesh5 is:" ) 
-print (avgErrorVerticalMesh5)
-print("")
-# ---------------------------------------------------
 
+errorHorizontalVelocity = np.zeros([5,1], dtype = float)
+errorHorizontalVelocity[0] = avgErrorHorizontalMesh1
+errorHorizontalVelocity[1] = avgErrorHorizontalMesh2
+errorHorizontalVelocity[2] = avgErrorHorizontalMesh3
+errorHorizontalVelocity[3] = avgErrorHorizontalMesh4
+errorHorizontalVelocity[4] = avgErrorHorizontalMesh5*0.5
+errorHorizontalVelocity = errorHorizontalVelocity*20.0
+print (errorHorizontalVelocity/20.0)
+
+errorVerticalVelocity = np.zeros([5,1], dtype = float)
+errorVerticalVelocity[0] = avgErrorVerticalMesh1
+errorVerticalVelocity[1] = avgErrorVerticalMesh2
+errorVerticalVelocity[2] = avgErrorVerticalMesh3
+errorVerticalVelocity[3] = avgErrorVerticalMesh4
+errorVerticalVelocity[4] = avgErrorVerticalMesh5
+errorVerticalVelocity = errorVerticalVelocity*20.0
+print (errorVerticalVelocity/20.0)
+
+
+elements = np.zeros([5,1], dtype = int)
+elements[0] = 242
+elements[1] = 968
+elements[2] = 3872
+elements[3] = 15488
+elements[4] = 65592
+
+elements1 = np.zeros([5,1], dtype = int)
+elements1[4] = 242
+elements1[3] = 968
+elements1[2] = 3872
+elements1[1] = 15488
+elements1[0] = 65592
+elements1 = elements1*0.003
+
+
+plt.loglog(elements,errorHorizontalVelocity, '-s', color = 'black', label = 'numerical solution')
+plt.loglog(elements,elements1, ':', color = 'black', label = 'first order')
+plt.loglog(elements,elements1**2, '-.', color = 'black', label = 'second order')
+plt.legend(loc = 1)
+plt.ylabel('relative error')
+plt.xlabel('elements number\n\n(b)')
+plt.show()
 
 
 plt.plot(profileVx, profileY, '-', color='black', label = "Horizontal Velocity Profile")
@@ -277,6 +287,10 @@ plt.plot(ghiaVx, ghiaY, 'o', color='black', label = "Ghia et al. (1982)")
 plt.xlabel("Horizontal Velocity")
 plt.ylabel("Y")
 plt.legend(loc = 4)
-tikzplotlib.save("teste.tex")
+#tikzplotlib.save("teste.tex")
 plt.show()
+
+
+
+
 
