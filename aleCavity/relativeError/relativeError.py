@@ -258,22 +258,22 @@ print (errorVerticalVelocity/20.0)
 
 
 elements = np.zeros([5,1], dtype = int)
-elements[0] = 242
-elements[1] = 968
-elements[2] = 3872
-elements[3] = 15488
-elements[4] = 65592
+elements[0] = 68
+elements[1] = 242
+elements[2] = 968
+elements[3] = 3872
+elements[4] = 15488
 
 elements1 = np.zeros([5,1], dtype = int)
-elements1[4] = 242
-elements1[3] = 968
-elements1[2] = 3872
-elements1[1] = 15488
-elements1[0] = 65592
+elements1[4] = 68     
+elements1[3] = 242
+elements1[2] = 968
+elements1[1] = 3872
+elements1[0] = 15488
 elements1 = elements1*0.003
 
 
-plt.loglog(elements,errorHorizontalVelocity, '-s', color = 'black', label = 'numerical solution')
+plt.loglog(elements,errorVerticalVelocity, '-s', color = 'black', label = 'numerical solution')
 plt.loglog(elements,elements1, ':', color = 'black', label = 'first order')
 plt.loglog(elements,elements1**2, '-.', color = 'black', label = 'second order')
 plt.legend(loc = 1)
