@@ -288,8 +288,9 @@ plt.xlabel("Horizontal Velocity")
 plt.ylabel("Y")
 plt.legend(loc = 4)
 #tikzplotlib.save("teste.tex")
-plt.show()
+#plt.show()
 
+plt.savefig('figtest.png')
 
 
 

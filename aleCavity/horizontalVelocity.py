@@ -6,15 +6,9 @@ import sys
 
 import numpy as np
 from tqdm import tqdm
-from time import time
 import matplotlib.pyplot as plt
+import tikzplotlib
 
-
-print '------------'
-print 'COMPARATION:'
-print '------------'
-
-start_time = time()
 
 # -----------
 # GHIA et al.
@@ -105,7 +99,7 @@ u_b[0] = 0.00000
 
 # ---------------------------------------------------
 cav_num = []
-with open('SL.csv') as cav:
+with open('horizontalProfile.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -155,10 +149,6 @@ for i in range(1,len(cav_num)):
 
 
 
-end_time = time()
-print 'time duration: %.1f seconds' %(end_time - start_time)
-print ""
-
 plt.clf()
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
@@ -166,12 +156,13 @@ ax = plt.axes()
 ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
 ax.set_ylabel(r'y',fontsize=14)
 ax.set_aspect('equal')
-#plt.plot(vx1, y1, '-', color='black', label = "SL without ALE")
+plt.plot(vx1, y1, '-', color='black', label = "Current Work")
 #plt.plot(vx3, y3, '-', color='red', label = "TG without ALE")
-plt.plot(vx2, y2, '-', color='black', label = "SL with ALE")
+#plt.plot(vx2, y2, '-', color='black', label = "SL with ALE")
 #plt.plot(vx4, y4, '-', color='red', label = "TG with ALE")
 plt.plot(u_a, y_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(u_b, y_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 4)
+tikzplotlib.save("horizontalVelocity.tex")
 plt.show()
 

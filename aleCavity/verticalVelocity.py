@@ -5,16 +5,11 @@
 
 import numpy as np
 from tqdm import tqdm
-from time import time
 import matplotlib.pyplot as plt
+import tikzplotlib
 
 
 
-print '------------'
-print 'COMPARATION:'
-print '------------'
-
-start_time = time()
 
 # -----------
 # GHIA et al.
@@ -105,7 +100,7 @@ v_b[0] = 0.00000
 
 # ---------------------------------------------------
 cav_num = []
-with open('vySLwithALE.csv') as cav:
+with open('verticalProfile.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -117,9 +112,6 @@ for i in range(1,len(cav_num)):
  x[i-1] = cav_num[i][8]
 # ---------------------------------------------------
 
-end_time = time()
-print 'time duration: %.1f seconds' %(end_time - start_time)
-print ""
 
 plt.clf()
 plt.rc('text', usetex=True)
@@ -128,9 +120,10 @@ ax = plt.axes()
 ax.set_xlabel(r'x',fontsize=14)
 ax.set_ylabel(r'Vertical Velocity',fontsize=14)
 ax.set_aspect('equal')
-plt.plot(x, vy, '-', color='black', label = "SL with ALE")
+plt.plot(x, vy, '-', color='black', label = "Current Work")
 plt.plot(x_a, v_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(x_b, v_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 3)
+tikzplotlib.save("verticalVelocity.tex")
 plt.show()
 
