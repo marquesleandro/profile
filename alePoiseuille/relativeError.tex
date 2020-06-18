@@ -1,0 +1,51 @@
+% This file was created by tikzplotlib v0.9.1.
+\begin{tikzpicture}
+
+\begin{axis}[
+legend cell align={left},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
+log basis x={10},
+log basis y={10},
+tick align=outside,
+tick pos=both,
+x grid style={white!69.0196078431373!black},
+xlabel={Elements Number},
+xmin=45.4714969953119, xmax=20267.6415094717,
+xmode=log,
+xtick style={color=black},
+y grid style={white!69.0196078431373!black},
+ylabel={Relative Error},
+ymin=0.000842597411085675, ymax=4284.04221578242,
+ymode=log,
+ytick style={color=black}
+]
+\addplot [semithick, black, mark=square*, mark size=3, mark options={solid}]
+table {%
+60 0.249876167836816
+240 0.0747309161218632
+960 0.0210934232709758
+3840 0.00610324223841618
+15360 0.0017
+};
+\addlegendentry{numerical solution}
+\addplot [semithick, black, dotted]
+table {%
+60 46.08
+240 11.52
+960 2.88
+3840 0.72
+15360 0.18
+};
+\addlegendentry{first order}
+\addplot [semithick, black, dash pattern=on 1pt off 3pt on 3pt off 3pt]
+table {%
+60 2123.3664
+240 132.7104
+960 8.2944
+3840 0.5184
+15360 0.0324
+};
+\addlegendentry{second order}
+\end{axis}
+
+\end{tikzpicture}
