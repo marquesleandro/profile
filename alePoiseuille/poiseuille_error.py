@@ -231,6 +231,8 @@ elementos1[0] = 15360
 
 elementos1 = elementos1*0.003
 
+print(error)
+
 plt.clf()
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
@@ -242,6 +244,6 @@ plt.loglog(elementos,error, '-s', color = 'black', label = 'numerical solution')
 plt.loglog(elementos,elementos1, ':', color = 'black', label = 'first order')
 plt.loglog(elementos,elementos1**2, '-.', color = 'black', label = 'second order')
 plt.legend(loc = 1)
-tikzplotlib.save("relativeError.tex")
+#tikzplotlib.save("relativeError.tex")
 plt.show()
 
