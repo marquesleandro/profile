@@ -19,7 +19,20 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('convection_galerkin_950.csv') as cav:
+with open('SLquad0.csv') as cav:
+ for line in cav:
+  row = line.split(',')
+  cav_num.append(row[:])
+
+y0 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx0 = np.zeros([len(cav_num)-1,1], dtype = float)
+for i in range(1,len(cav_num)):
+ vx0[i-1] = cav_num[i][4]
+ y0[i-1] = cav_num[i][6]
+
+
+cav_num = []
+with open('SLquad1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -30,12 +43,8 @@ for i in range(1,len(cav_num)):
  vx1[i-1] = cav_num[i][4]
  y1[i-1] = cav_num[i][6]
 
-# -----
-# Taylor-Galerkin
-# -----
-
 cav_num = []
-with open('convection_taylor_950.csv') as cav:
+with open('SLquad2.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -45,6 +54,20 @@ vx2 = np.zeros([len(cav_num)-1,1], dtype = float)
 for i in range(1,len(cav_num)):
  vx2[i-1] = cav_num[i][4]
  y2[i-1] = cav_num[i][6]
+
+cav_num = []
+with open('SLquad3.csv') as cav:
+ for line in cav:
+  row = line.split(',')
+  cav_num.append(row[:])
+
+y3 = np.zeros([len(cav_num)-1,1], dtype = float)
+vx3 = np.zeros([len(cav_num)-1,1], dtype = float)
+for i in range(1,len(cav_num)):
+ vx3[i-1] = cav_num[i][4]
+ y3[i-1] = cav_num[i][6]
+
+
 
 
 # -----
@@ -80,13 +103,24 @@ end_time = time()
 print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
-plt.plot(y1, vx1, '--', color='black', label = "Galerkin")
-plt.plot(y2, vx2, '-', color='black', label = "Taylor-Galerkin")
-plt.plot(ye0, vxe0, '--', color='black', label = "solucao analitica")
-plt.plot(ye0, vxe1, '--', color='black', label = "solucao analitica")
-plt.plot(ye0, vxe2, '--', color='black', label = "solucao analitica")
-plt.plot(ye0, vxe3, '--', color='black', label = "solucao analitica")
-plt.legend(loc = 1)
-plt.ylabel('escalar c')
-plt.xlabel('posicao')
+plt.clf()
+plt.rc('text', usetex=True)
+plt.rc('font', family='fourier')
+ax = plt.axes()
+ax.set_xlabel(r'position',fontsize=14)
+ax.set_ylabel(r'scalar',fontsize=14)
+ax.set_aspect('auto')
+
+plt.plot(y0, vx0, '-', color='black', label = "semi-Lagrangian")
+#plt.plot(y1, vx1, '-', color='black', label = "semi-Lagrangian")
+#plt.plot(y2, vx2, '-', color='black', label = "semi-Lagrangian")
+#plt.plot(y3, vx3, '-', color='black', label = "semi-Lagrangian")
+
+plt.plot(ye0, vxe0, '--', color='black', label = "analytical solution")
+#plt.plot(ye0, vxe1, '--', color='black', label = "analytical solution")
+#plt.plot(ye0, vxe2, '--', color='black', label = "analytical solution")
+#plt.plot(ye0, vxe3, '--', color='black', label = "analytical solution")
+
+plt.legend(loc = 2)
 plt.show()
+
