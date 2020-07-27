@@ -13,7 +13,7 @@ print 'COMPARATION:'
 print '------------'
 
 start_time = time()
-
+'''
 # -----
 # 0.1 s
 # -----
@@ -62,14 +62,14 @@ vx3 = np.zeros([len(cav_num)-1,1], dtype = float)
 for i in range(1,len(cav_num)):
  vx3[i-1] = cav_num[i][1]
  y3[i-1] = cav_num[i][7]
-
+'''
 # ------------
 # Steady State
 # ------------
 
 cav_num = []
-#with open('half_poiseuille.csv') as cav:
-with open('half_poiseuille1.csv') as cav:
+with open('half_poiseuille.csv') as cav:
+#with open('half_poiseuille1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -114,13 +114,18 @@ print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
 
-plt.xticks(np.arange(0.0, 1.7, 0.1))
-plt.yticks(np.arange(0.0, 1.1, 0.1))
+plt.clf()
+plt.rc('text', usetex=True)
+plt.rc('font', family='fourier')
+ax = plt.axes()
+ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
+ax.set_ylabel(r'y',fontsize=14)
+ax.set_aspect('auto')
 #plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
 #plt.plot(vx3, y3, '.', color='black', fillstyle='none', label = "t = 1.0")
-plt.plot(vx4, y4, '-', color='black', label = "solucao numerica")
-plt.plot(vxe, ye, '--', color='black', label = "solucao analitica")
+plt.plot(vx4, y4, '--', color='black', label = "numerical solution")
+plt.plot(vxe, ye, '-', color='black', label = "analytical solution")
 plt.legend(loc = 3)
-plt.ylabel('y')
-plt.xlabel('velocidade-u')
+#tikzplotlib.save("horizontalVelocity.tex")
 plt.show()
+

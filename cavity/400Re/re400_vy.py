@@ -105,7 +105,7 @@ v_b[0] = 0.00000
 
 
 cav_num = []
-with open('re400b_vy.csv') as cav:
+with open('re400_vy.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -122,10 +122,18 @@ print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
 
-plt.plot(x, vy, '-', color='black', label = "current work")
+
+plt.clf()
+plt.rc('text', usetex=True)
+plt.rc('font', family='fourier')
+ax = plt.axes()
+ax.set_xlabel(r'x',fontsize=14)
+ax.set_ylabel(r'Vertical Velocity',fontsize=14)
+ax.set_aspect('auto')
+plt.plot(x, vy, '-', color='black', label = "Current Work")
 plt.plot(x_a, v_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(x_b, v_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 3)
-plt.ylabel('v-velocity')
-plt.xlabel('x')
+#tikzplotlib.save("verticalVelocity.tex")
 plt.show()
+

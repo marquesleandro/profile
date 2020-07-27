@@ -121,10 +121,17 @@ print 'time duration: %.1f seconds' %(end_time - start_time)
 print ""
 
 
-plt.plot(vx, y, '-', color='black', label = "trabalho atual")
+plt.clf()
+plt.rc('text', usetex=True)
+plt.rc('font', family='fourier')
+ax = plt.axes()
+ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
+ax.set_ylabel(r'y',fontsize=14)
+ax.set_aspect('auto')
+plt.plot(vx, y, '-', color='black', label = "Current Work")
 #plt.plot(u_a, y_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(u_b, y_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 4)
-plt.ylabel('y')
-plt.xlabel('u-velocidade')
+#tikzplotlib.save("horizontalVelocity.tex")
 plt.show()
+

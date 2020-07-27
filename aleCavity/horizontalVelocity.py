@@ -7,7 +7,7 @@ import sys
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-import tikzplotlib
+#import tikzplotlib
 
 
 # -----------
@@ -151,7 +151,7 @@ for i in range(1,len(cav_num)):
 
 plt.clf()
 plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+plt.rc('font', family='fourier')
 ax = plt.axes()
 ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
 ax.set_ylabel(r'y',fontsize=14)
@@ -163,6 +163,6 @@ plt.plot(vx1, y1, '-', color='black', label = "Current Work")
 plt.plot(u_a, y_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(u_b, y_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 4)
-tikzplotlib.save("horizontalVelocity.tex")
+#tikzplotlib.save("horizontalVelocity.tex")
 plt.show()
 

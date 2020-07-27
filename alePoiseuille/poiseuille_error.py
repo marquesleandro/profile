@@ -8,7 +8,7 @@ import numpy as np
 from tqdm import tqdm
 from time import time
 import matplotlib.pyplot as plt
-import tikzplotlib
+#import tikzplotlib
 
 
 # -----
@@ -235,14 +235,14 @@ print(error)
 
 plt.clf()
 plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+plt.rc('font', family='fourier')
 ax = plt.axes()
 ax.set_xlabel(r'Elements Number',fontsize=14)
 ax.set_ylabel(r'Relative Error',fontsize=14)
 ax.set_aspect('auto')
 plt.loglog(elementos,error, '-s', color = 'black', label = 'numerical solution')
-plt.loglog(elementos,elementos1, ':', color = 'black', label = 'first order')
-plt.loglog(elementos,elementos1**2, '-.', color = 'black', label = 'second order')
+plt.loglog(elementos,elementos1, ':', color = 'black', label = '1st-order convergence')
+plt.loglog(elementos,elementos1**2, '-.', color = 'black', label = '2st-order convergence')
 plt.legend(loc = 1)
 #tikzplotlib.save("relativeError.tex")
 plt.show()

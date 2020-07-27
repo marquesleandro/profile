@@ -6,7 +6,7 @@
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-import tikzplotlib
+#import tikzplotlib
 
 
 
@@ -115,7 +115,7 @@ for i in range(1,len(cav_num)):
 
 plt.clf()
 plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+plt.rc('font', family='fourier')
 ax = plt.axes()
 ax.set_xlabel(r'x',fontsize=14)
 ax.set_ylabel(r'Vertical Velocity',fontsize=14)
@@ -124,6 +124,6 @@ plt.plot(x, vy, '-', color='black', label = "Current Work")
 plt.plot(x_a, v_a, 'o', color='black', label = "Ghia et al. (1982)")
 plt.plot(x_b, v_b, 'x', color='black', label = "Marchi et al. (2009)")
 plt.legend(loc = 3)
-tikzplotlib.save("verticalVelocity.tex")
+#tikzplotlib.save("verticalVelocity.tex")
 plt.show()
 
