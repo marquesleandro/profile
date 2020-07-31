@@ -18,7 +18,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('curvedstent_200.csv') as cav:
+with open('realstent_200.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -34,7 +34,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('curvedstent_2000.csv') as cav:
+with open('realstent_2000.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -51,7 +51,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('curvedstent_6000.csv') as cav:
+with open('realstent_6000.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -68,7 +68,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('velocityCurvedStent.csv') as cav:
+with open('velocityRealStent.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
