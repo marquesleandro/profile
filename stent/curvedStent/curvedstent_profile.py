@@ -18,7 +18,7 @@ start_time = time()
 # -----
 
 cav_num = []
-with open('vel05.csv') as cav:
+with open('quadvel05.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -38,8 +38,8 @@ for i in range(1,nn-1):
  vx1[i] = cav_num[i*aa][1]
  y1[i] = cav_num[i*aa][7]
 
-vx1[0] = 2.89
-vx1[nn-1] = 2.89
+vx1[0] = 2.709
+vx1[nn-1] = 2.709
 y1[0] = 1.0
 y1[nn-1] = 0.0
 
@@ -50,7 +50,7 @@ y1[nn-1] = 0.0
 # -----
 
 cav_num = []
-with open('vel1.csv') as cav:
+with open('quadvel1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -84,7 +84,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('vel100.csv') as cav:
+with open('quadvel100.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])

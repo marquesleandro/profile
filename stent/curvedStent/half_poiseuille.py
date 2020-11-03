@@ -35,7 +35,7 @@ for i in range(1,len(cav_num)):
 # -----
 
 cav_num = []
-with open('quadHalf05.csv') as cav:
+with open('quadGeovel05.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -56,8 +56,8 @@ for i in range(1,nn-1):
  y2[i] = cav_num[i*aa][7]
 
 vx2[0] = 0.0
-vx2[nn-1] = 1.122
-y2[0] = 1.0
+vx2[nn-1] = 1.87
+y2[0] = 0.6
 y2[nn-1] = 0.0
 
 
@@ -69,7 +69,7 @@ y2[nn-1] = 0.0
 # -----
 
 cav_num = []
-with open('quadHalf1.csv') as cav:
+with open('quadGeovel1.csv') as cav:
  for line in cav:
   row = line.split(',')
   cav_num.append(row[:])
@@ -88,10 +88,10 @@ for i in range(1,nn-1):
  vx3[i] = cav_num[i*aa][1]
  y3[i] = cav_num[i*aa][7]
 
-vx3[0] = 0.0
-vx3[nn-1] = 1.252
-y3[0] = 1.0
-y3[nn-1] = 0.0
+vx3[0] = 2.079
+vx3[nn-1] = 0.0
+y3[0] = 0.0
+y3[nn-1] = 0.6
 
 
 
@@ -101,7 +101,7 @@ y3[nn-1] = 0.0
 # ------------
 
 cav_num = []
-with open('half_poiseuille.csv') as cav:
+with open('quadGeovel100.csv') as cav:
 #with open('half_poiseuille1.csv') as cav:
  for line in cav:
   row = line.split(',')
@@ -155,10 +155,10 @@ ax.set_xlabel(r'Horizontal Velocity',fontsize=14)
 ax.set_ylabel(r'y',fontsize=14)
 ax.set_aspect('auto')
 #plt.plot(vx1, y1, '2', color='black', label = "t = 0.1")
-plt.plot(vx2, y2, '.', color='black', fillstyle='none', label = "t = 0.5s")
-plt.plot(vx3, y3, '.', color='black', label = "t = 1.0s")
-plt.plot(vx4, y4, '--', color='black', label = "t = 100.0s")
-plt.plot(vxe, ye, '-', color='black', label = "analytical solution")
+plt.plot(vx2, y2, '.', color='black', label = "t = 0.5s")
+plt.plot(vx3, y3, '--', color='black', label = "t = 1.0s")
+plt.plot(vx4, y4, '-', color='black', label = "t = 100.0s")
+#plt.plot(vxe, ye, '-', color='black', label = "analytical solution")
 plt.legend(loc = 3)
 #tikzplotlib.save("horizontalVelocity.tex")
 plt.show()
